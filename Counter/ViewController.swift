@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var CounterLabel: UILabel!
+    @IBOutlet weak var counterLabel: UILabel!
     
     @IBOutlet weak var logsTextView: UITextView!
     @IBOutlet weak var resetButton: UIButton!
@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     
     
     private var today = Date.now
-    let dateFormatter = DateFormatter()
-    var trueDate = ""
+    private let dateFormatter = DateFormatter()
+    private var trueDate = ""
     private var isResseted = false
     private var lessThanZero = false
     
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
             }
             today = Date.now
             trueDate = dateFormatter.string(from: today)
-            CounterLabel.text = "Значение счетчика: \(number)"
+            counterLabel.text = "Значение счетчика: \(number)"
             printLogsInTextView(oldValue: oldValue)
         }
     }
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logsTextView.text = "История изменений:"
-        CounterLabel.text = "Значение счетчика: \(number)"
+        counterLabel.text = "Значение счетчика: \(number)"
         dateFormatter.dateFormat = "HH:mm:ss, dd/MM/yyyy"
         
         addOneButton.layer.cornerRadius = 16
